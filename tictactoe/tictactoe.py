@@ -74,32 +74,113 @@ def result(board, action):
     return res_board
 
 
-print(result(initial_state(), (0,0)))
+def who_won(board):
+
+    res = None
+
+    # First row or first column
+    if (board[0][0] == board[0][1] and board[0][1] == board[0][2] or
+        board[0][0] == board[1][0] and  board[1][0] == board[2][0]):
+
+        if (board[0][0] == O or board[0][0] == X):
+            return board[0][0]
+
+    # Last row and last column
+    if (board[0][2] == board[1][2] and  board[1][2] == board[2][2] or
+        board[2][0] == board[2][1] and  board[2][1] == board[2][2]):
+
+        if (board[2][2] == O or board[2][2] == X):
+            return board[2][2]
+
+    # Diagonals and middle row and column
+    if (board[0][0] == board[1][1] and board[1][1] == board[2][2] or 
+        board[0][2] == board[1][1] and board[1][1] == board[2][0] or
+
+        board[0][1] == board[1][1] and board[1][1] == board[2][1] or 
+        board[1][0] == board[1][1] and board[1][1] == board[1][2]):
+
+
+        if (board[1][1] == O or board[1][1] == X):
+            return board[1][1]
+    
+    return EMPTY
 
 
 def winner(board):
     """
     Returns the winner of the game, if there is one.
     """
-    raise NotImplementedError
+    res = who_won(board)
+    return None if res == EMPTY else res
+
+def is_full(board):
+    for row in board:
+        for cell in row:
+            if cell == EMPTY:
+                return False
+    return True
 
 
 def terminal(board):
     """
     Returns True if game is over, False otherwise.
     """
-    raise NotImplementedError
+    return winner(board) != None or is_full(board)
 
 
 def utility(board):
     """
     Returns 1 if X has won the game, -1 if O has won, 0 otherwise.
     """
-    raise NotImplementedError
+    win = winner(board)
+    if (win != None):
+        return 1 if win == X else -1
+    
+    return 0
 
+def min_value(state):
+    if (terminal(state)):
+        return utility(state)
+    
+    value = float('inf')
+    for action in actions(state):
+        value = min(value, max_value(result(state, action)))
+    return value
+
+def max_value(state):
+    if (terminal(state)):
+        return utility(state)
+    
+    value = float('-inf')
+    for action in actions(state):
+        value = max(value, min_value(result(state, action)))
+    return value
 
 def minimax(board):
     """
     Returns the optimal action for the current player on the board.
     """
-    raise NotImplementedError
+    if terminal(board):
+        return None
+    
+    player_to_move = player(board)
+    if (player_to_move == X):
+        best_util = -1
+        best_action = None
+        for action in actions(board):
+            if min_value(result(board, action)) > best_util:
+                best_action = action
+                best_util = min_value(result(board, action))
+
+        return best_action
+    
+
+    else:
+        best_util = 1
+        best_action = None
+        for action in actions(board):
+            if max_value(result(board, action)) < best_util:
+                best_action = action
+                best_util = max_value(result(board, action))
+
+        return best_action
