@@ -1,3 +1,6 @@
 # Tictactoe Ignore
 venv
 tictactoe/OpenSans-Regular.ttf
+tictactoe/__pycache__
+
+

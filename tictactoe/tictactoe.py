@@ -168,9 +168,10 @@ def minimax(board):
         best_util = -1
         best_action = None
         for action in actions(board):
-            if min_value(result(board, action)) > best_util:
+            curr_util = min_value(result(board, action))
+            if curr_util > best_util:
                 best_action = action
-                best_util = min_value(result(board, action))
+                best_util = curr_util
 
         return best_action
     
@@ -179,8 +180,9 @@ def minimax(board):
         best_util = 1
         best_action = None
         for action in actions(board):
-            if max_value(result(board, action)) < best_util:
+            curr_util = max_value(result(board, action))
+            if curr_util < best_util:
                 best_action = action
-                best_util = max_value(result(board, action))
+                best_util = curr_util
 
         return best_action
