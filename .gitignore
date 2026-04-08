@@ -1,6 +1,9 @@
 # Tictactoe Ignore
 venv
 tictactoe/OpenSans-Regular.ttf
-tictactoe/__pycache__
+*__pycache__
+.DS_Store
 
 
+degrees/large
+degrees/small
