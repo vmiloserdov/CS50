@@ -1,0 +1,1 @@
+These are my solutions to CS50 AI. 

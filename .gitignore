@@ -1,9 +1,13 @@
-# Tictactoe Ignore
+# Tictactoe
 venv
-tictactoe/OpenSans-Regular.ttf
 *__pycache__
 .DS_Store
 
-
+# Tic Tac Toe && Degrees
+tictactoe/OpenSans-Regular.ttf
 degrees/large
 degrees/small
+
+# Minesweeper
+minesweeper/assets
+minesweeper/requirements.txt
