@@ -11,3 +11,11 @@ degrees/small
 # Minesweeper
 minesweeper/assets
 minesweeper/requirements.txt
+
+# PageRank
+pagerank/corpus0/
+pagerank/corpus1/
+pagerank/corpus2/
+
+# Heredity
+heredity/data/
