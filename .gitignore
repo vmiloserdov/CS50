@@ -19,3 +19,8 @@ pagerank/corpus2/
 
 # Heredity
 heredity/data/
+
+# Crossword
+crossword/data
+crossword/assets
+crossword/tests.py
