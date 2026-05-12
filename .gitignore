@@ -24,3 +24,6 @@ heredity/data/
 crossword/data
 crossword/assets
 crossword/tests.py
+
+# Shopping 
+shopping/shopping.csv
