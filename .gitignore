@@ -2,6 +2,7 @@
 venv
 *__pycache__
 .DS_Store
+.vscode/
 
 # Tic Tac Toe && Degrees
 tictactoe/OpenSans-Regular.ttf
@@ -27,3 +28,7 @@ crossword/tests.py
 
 # Shopping 
 shopping/shopping.csv
+
+# Traffic
+traffic/gtsrb
+traffic/gtsrb-small
