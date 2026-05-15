@@ -32,3 +32,6 @@ shopping/shopping.csv
 # Traffic
 traffic/gtsrb
 traffic/gtsrb-small
+
+# Parser
+/parser/sentences
