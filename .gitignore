@@ -33,5 +33,6 @@ shopping/shopping.csv
 traffic/gtsrb
 traffic/gtsrb-small
 
-# Parser
+# Parser & Mask
 /parser/sentences
+/attention/assets/
